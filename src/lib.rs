@@ -63,6 +63,7 @@ pub enum Kind {
 /// # Example
 ///
 /// ```
+/// # use freedesktop_categories::is_category;
 /// assert!(is_category("AudioVideo"));
 /// assert!(is_category("Office"));
 /// assert!(is_category("System"));
