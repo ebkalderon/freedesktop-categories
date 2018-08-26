@@ -3,7 +3,11 @@
 
 extern crate phf;
 
+#[cfg(feature = "generate-map")]
 include!(concat!(env!("OUT_DIR"), "/map.rs"));
+
+#[cfg(not(feature = "generate-map"))]
+include!("map.rs");
 
 #[derive(Clone, Debug)]
 pub struct Category {
