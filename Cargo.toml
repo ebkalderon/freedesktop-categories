@@ -1,6 +1,12 @@
 [package]
-name = "freedesktop_categories"
+name = "freedesktop-categories"
 version = "0.1.0"
 authors = ["Eyal Kalderon <ebkalderon@gmail.com>"]
 
 [dependencies]
+phf = "0.7.22"
+
+[build-dependencies]
+curl = "0.4.12"
+minidom = "0.9.1"
+phf_codegen = "0.7.22"
