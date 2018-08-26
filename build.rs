@@ -124,7 +124,7 @@ cfg_if! {
                     _ => "",
                 };
 
-                let init_str = format!("Category {{ kind: Kind::Main {{ requires: &[{}] }}, deprecated: true }}", requires);
+                let init_str = format!("Category {{ kind: Kind::Main {{ requires: &[{}] }}, deprecated: false }}", requires);
                 map.entry(name, &init_str);
             }
 
