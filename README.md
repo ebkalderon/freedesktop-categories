@@ -6,7 +6,7 @@ Static hash map of all application categories defined by the Freedesktop.org
 [dm]: https://specifications.freedesktop.org/menu-spec/menu-spec-1.0.html
 
 These categories are used in the parsing of `.desktop` entries on many open
-source desktop environments, among other things. These categories are also
-present in other package metadata standards like [AppStream][as].
+source desktop environments, among other things. They are also present in other
+package metadata standards like [AppStream][as].
 
 [as]: https://www.freedesktop.org/software/appstream/docs/index.html
