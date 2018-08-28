@@ -1,6 +1,6 @@
 # freedesktop-categories
 
-Static hash map of all application categories defined by the Freedesktop.org
+Static hash map of all application categories as defined by the Freedesktop.org
 [Desktop Menu Specification 1.0][dm].
 
 [dm]: https://specifications.freedesktop.org/menu-spec/menu-spec-1.0.html
