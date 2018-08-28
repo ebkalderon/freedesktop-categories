@@ -88,7 +88,7 @@ impl DesktopMenuSpec {
             .replace("&version", "version")
             .replace("&dtd-version", "dtd-version");
 
-        let doc = new_document(&xml).unwrap();
+        let doc = new_document(&xml)?;
         let root = doc.root_element();
 
         let map = CategoryMap::generate(&root)?;
