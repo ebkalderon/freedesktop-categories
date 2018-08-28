@@ -32,7 +32,7 @@ mod generate;
 const SPEC_URL: &str = "https://specifications.freedesktop.org/menu-spec/menu-spec-latest.xml";
 const SPEC_NAME: &str = "menu-spec-latest.xml";
 
-/// Parses the specification and generates a static hash map of categories during a Cargo build.
+/// Specification parser and code generator.
 #[derive(Debug)]
 pub struct DesktopMenuSpec {
     xml_cache_dir: Option<PathBuf>,
@@ -50,7 +50,7 @@ impl DesktopMenuSpec {
         }
     }
 
-    /// Overrides the path where the XML file should be downloaded and cached
+    /// Overrides the path where the XML file should be downloaded and cached.
     ///
     /// This value is `$OUT_DIR` by default.
     pub fn xml_cache_dir<P: Into<PathBuf>>(&mut self, path: P) -> &mut Self {

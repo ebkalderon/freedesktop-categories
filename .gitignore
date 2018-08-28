@@ -1,4 +1,8 @@
-
+# Ignore files in top-level crate
 /target
 **/*.rs.bk
 Cargo.lock
+
+# Ignore files in codegen crate
+codegen/target
+codegen/Cargo.lock
