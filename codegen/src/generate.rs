@@ -45,7 +45,6 @@ impl CategoryMap {
     }
 }
 
-
 fn parse_main_categories(root: &NodePtr, map: &mut Map<String>) -> Result<(), Error> {
     let entries = root.get_nodeset(
         "//sect1[@id='main-category-registry']/para/informaltable/tgroup/tbody/row/entry",
