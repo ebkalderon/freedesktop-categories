@@ -83,6 +83,7 @@ impl DesktopMenuSpec {
             .clone()
             .unwrap_or(env::var("OUT_DIR")?.into());
 
+        // Remove the DocBook-specific symbols so the XML can be parsed normally.
         let xml = fetch_or_download(&cache_dir, self.always_download)?
             .replace("&version", "version")
             .replace("&dtd-version", "dtd-version");
