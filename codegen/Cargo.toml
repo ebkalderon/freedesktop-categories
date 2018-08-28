@@ -1,0 +1,10 @@
+[package]
+name = "freedesktop-categories-codegen"
+version = "0.1.0"
+authors = ["Eyal Kalderon <ebkalderon@gmail.com>"]
+publish = false
+
+[dependencies]
+amxml = "0.5.2"
+curl = "0.4.12"
+phf_codegen = "0.7.22"

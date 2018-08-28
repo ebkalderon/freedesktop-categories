@@ -5,13 +5,12 @@ authors = ["Eyal Kalderon <ebkalderon@gmail.com>"]
 
 [features]
 default = []
-generate-map = ["curl", "minidom", "phf_codegen"]
+generate-map = ["freedesktop-categories-codegen"]
 
 [dependencies]
 phf = "0.7.22"
 
-[build-dependencies]
-cfg-if = "0.1.5"
-curl = { version = "0.4.12", optional = true }
-minidom = { version = "0.9.1", optional = true }
-phf_codegen = { version = "0.7.22", optional = true }
+[build-dependencies.freedesktop-categories-codegen]
+version = "0.1.0"
+path = "./codegen"
+optional = true
