@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+#
+# update.sh
+#
+# Generates a new version of `map.rs` and copies it to the `src` directory.
+#
+
 set -euo pipefail
 
 cargo clean
