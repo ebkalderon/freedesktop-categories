@@ -5,7 +5,7 @@
 //! saves the generated Rust code to a file which can be included in your Rust project during a
 //! Cargo build.
 //!
-//! [dm]: https://specifications.freedesktop.org/menu-spec/menu-spec-1.0.html
+//! [dm]: https://specifications.freedesktop.org/menu-spec/menu-spec-latest.html
 
 #![deny(missing_debug_implementations)]
 #![forbid(unsafe_code)]

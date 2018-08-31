@@ -1,7 +1,7 @@
 //! Static hash map of all application categories defined by the Freedesktop.org
-//! [Desktop Menu Specification 1.0][dm].
+//! [Desktop Menu Specification][dm].
 //!
-//! [dm]: https://specifications.freedesktop.org/menu-spec/menu-spec-1.0.html
+//! [dm]: https://specifications.freedesktop.org/menu-spec/menu-spec-latest.html
 //!
 //! These categories are used in the parsing of `.desktop` entries on many open source desktop
 //! environments, among other things. They are also present in other package metadata standards
