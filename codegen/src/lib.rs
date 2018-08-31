@@ -17,6 +17,7 @@ extern crate phf_codegen;
 pub use error::Error;
 
 use std::env;
+use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::fs::{self, File};
 use std::io::Write;
 use std::path::{Path, PathBuf};
@@ -29,8 +30,31 @@ use generate::CategoryMap;
 mod error;
 mod generate;
 
-const SPEC_URL: &str = "https://specifications.freedesktop.org/menu-spec/menu-spec-latest.xml";
-const SPEC_NAME: &str = "menu-spec-latest.xml";
+const SPEC_URL: &str = "https://specifications.freedesktop.org/menu-spec/";
+
+/// Version of the specification to download.
+#[derive(Debug)]
+pub enum Version {
+    V090,
+    V091,
+    V092,
+    V100,
+    V110,
+    Latest,
+}
+
+impl Display for Version {
+    fn fmt(&self, fmt: &mut Formatter) -> FmtResult {
+        match *self {
+            Version::V090 => write!(fmt, "0.9"),
+            Version::V091 => write!(fmt, "0.91"),
+            Version::V092 => write!(fmt, "0.92"),
+            Version::V100 => write!(fmt, "1.0"),
+            Version::V110 => write!(fmt, "1.1"),
+            Version::Latest => write!(fmt, "latest"),
+        }
+    }
+}
 
 /// Specification parser and code generator.
 #[derive(Debug)]
@@ -38,6 +62,7 @@ pub struct DesktopMenuSpec {
     xml_cache_dir: Option<PathBuf>,
     always_download: bool,
     output_name: &'static str,
+    version: Version,
 }
 
 impl DesktopMenuSpec {
@@ -47,6 +72,7 @@ impl DesktopMenuSpec {
             xml_cache_dir: None,
             always_download: false,
             output_name: "map.rs",
+            version: Version::Latest,
         }
     }
 
@@ -74,6 +100,14 @@ impl DesktopMenuSpec {
         self
     }
 
+    /// Specifies which version of the spec we wish to generate.
+    ///
+    /// This value is `Version::Latest` by default.
+    pub fn version(&mut self, ver: Version) -> &mut Self {
+        self.version = ver;
+        self
+    }
+
     /// Generates a static hash map of application categories and saves it to a file.
     ///
     /// Returns `Ok(())` if successful, returns `Err(Error)` otherwise.
@@ -84,7 +118,7 @@ impl DesktopMenuSpec {
             .unwrap_or(env::var("OUT_DIR")?.into());
 
         // Remove the DocBook-specific symbols so the XML can be parsed normally.
-        let xml = fetch_or_download(&cache_dir, self.always_download)?
+        let xml = fetch_or_download(&self.version, &cache_dir, self.always_download)?
             .replace("&version", "version")
             .replace("&dtd-version", "dtd-version");
 
@@ -99,13 +133,14 @@ impl DesktopMenuSpec {
     }
 }
 
-fn fetch_or_download(out_dir: &Path, always_download: bool) -> Result<String, Error> {
-    let path = Path::new(&out_dir).join(SPEC_NAME);
+fn fetch_or_download(ver: &Version, out_dir: &Path, always_download: bool) -> Result<String, Error> {
+    let file_name = format!("menu-spec-{}.xml", ver);
+    let path = Path::new(&out_dir).join(&file_name);
 
     if !path.exists() || always_download {
         let mut file = File::create(&path)?;
         let mut handle = Easy::new();
-        handle.url(SPEC_URL)?;
+        handle.url(&format!("{}/{}", SPEC_URL, file_name))?;
 
         let mut transfer = handle.transfer();
         transfer.write_function(|data| {

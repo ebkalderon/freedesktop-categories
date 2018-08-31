@@ -23,36 +23,17 @@ include!("map.rs");
 // TODO: Hide away this type and expose something more type-safe.
 /// Entry in the category hash map.
 #[derive(Clone, Debug)]
-pub struct Category {
-    /// The kind of category.
-    pub kind: Kind,
-    /// Whether this category is considered deprecated.
-    pub deprecated: bool,
-}
-
-// TODO: Hide away this type and expose something more type-safe.
-/// Type of category being described.
-#[derive(Clone, Debug)]
-pub enum Kind {
+pub enum Category {
     Main {
         /// Other main categories required to be used alongside this category.
         requires: &'static [&'static str],
     },
     Additional {
-        /// Parent categories under which this one will appear.
-        parents: &'static [&'static str],
-        /// Whether this category permits usage alongside multiple parents.
-        ///
-        /// The specification uses the following notation to describe interactions with parents:
-        ///
-        /// Notation            | Meaning
-        /// --------------------|---------------------------------------------------------------------------------
-        /// `Foo;Bar;Baz`       | Category can be grouped with any combination of `Foo` and/or `Bar` and/or `Baz`.
-        /// `Foo or Bar or Baz` | Can only be used with one of `Foo` or `Bar` or `Baz` at a time.
-        only_one_active_parent: bool,
-        /// Whether this category requires users to specify the `OnlyShowIn` tag in entries.
-        needs_only_show_in: bool,
-    }
+        /// Related categories which are suggested to be used alongside this one.
+        suggests: &'static [&'static str],
+    },
+    /// Reserved tags require users to specify the `OnlyShowIn` tag in entries.
+    Reserved,
 }
 
 /// Returns whether the given string is a valid category.
