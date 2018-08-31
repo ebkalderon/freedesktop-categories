@@ -91,6 +91,8 @@ fn parse_additional_categories(root: &NodePtr, map: &mut Map<String>) -> Result<
 
         let suggests: Vec<_> = if related.contains(" or ") {
             related.split(" or ").collect()
+        } else if !related.is_empty() {
+            vec![related.as_str()]
         } else {
             Vec::new()
         };
