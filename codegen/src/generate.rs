@@ -89,7 +89,7 @@ fn parse_additional_categories(root: &NodePtr, map: &mut Map<String>) -> Result<
         let related_err: String = row.skip(1).collect();
         let related = related_err.replace("QT", "Qt"); // Fix a spelling mistake in the spec.
 
-        let suggests: Vec<_> = if related.contains(" or ") {
+        let suggests = if related.contains(" or ") {
             related.split(" or ").collect()
         } else if !related.is_empty() {
             vec![related.as_str()]
