@@ -14,4 +14,5 @@ cargo build --features generate-map
 map_name="$(find ./target/ -name map.rs | head -1)"
 cp "${map_name}" src/
 
+git add -A
 git commit -m 'Updated map.rs with latest spec version'
