@@ -11,6 +11,7 @@
 #![forbid(unsafe_code)]
 
 extern crate amxml;
+extern crate chrono;
 extern crate curl;
 extern crate phf_codegen;
 
