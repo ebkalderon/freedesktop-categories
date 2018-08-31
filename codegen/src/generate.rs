@@ -85,7 +85,7 @@ fn parse_additional_categories(root: &NodePtr, map: &mut Map<String>) -> Result<
     });
 
     for mut row in rows {
-        let name = row.next().unwrap();
+        let name = row.next().expect("Couldn't get name column from table row");
         let related_err: String = row.skip(1).collect();
         let related = related_err.replace("QT", "Qt"); // Fix a spelling mistake in the spec.
 

@@ -145,7 +145,7 @@ fn fetch_or_download(ver: &Version, out_dir: &Path, always_download: bool) -> Re
 
         let mut transfer = handle.transfer();
         transfer.write_function(|data| {
-            file.write(data).unwrap();
+            file.write(data).expect("Unable to write received data to file");
             Ok(data.len())
         })?;
         transfer.perform()?;
