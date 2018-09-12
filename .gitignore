@@ -4,5 +4,5 @@
 Cargo.lock
 
 # Ignore files in codegen crate
-codegen/target
-codegen/Cargo.lock
+/codegen/target
+/codegen/Cargo.lock
