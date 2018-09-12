@@ -9,8 +9,8 @@
 //!
 //! [as]: https://www.freedesktop.org/software/appstream/docs/index.html
 
-#[deny(missing_debug_implementations)]
-#[forbid(unsafe_code)]
+#![deny(missing_debug_implementations)]
+#![forbid(unsafe_code)]
 
 extern crate phf;
 
