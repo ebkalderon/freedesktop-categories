@@ -1,8 +1,8 @@
 //! Common error type used throughout the crate.
 
 use std::env::VarError;
-use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::error::Error as StdError;
+use std::fmt::{Display, Formatter, Result as FmtResult};
 use std::io::Error as IoError;
 
 use curl::Error as CurlError;
@@ -44,9 +44,9 @@ impl Display for Error {
     fn fmt(&self, fmt: &mut Formatter) -> FmtResult {
         match *self {
             Error::Curl(ref e) => write!(fmt, "{}: {}", self.description(), e),
-            Error::Io(ref e) => write!(fmt, "{}: {}", self.description(), e), 
-            Error::Var(ref e) => write!(fmt, "{}: {}", self.description(), e), 
-            Error::Xml(ref e) => write!(fmt, "{}: {}", self.description(), e), 
+            Error::Io(ref e) => write!(fmt, "{}: {}", self.description(), e),
+            Error::Var(ref e) => write!(fmt, "{}: {}", self.description(), e),
+            Error::Xml(ref e) => write!(fmt, "{}: {}", self.description(), e),
         }
     }
 }

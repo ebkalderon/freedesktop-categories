@@ -97,11 +97,7 @@ fn parse_additional_categories(root: &NodePtr, map: &mut Map<String>) -> Result<
             Vec::new()
         };
 
-        let init_str = format!(
-            "Category::Additional {{ suggests: &{:?} }}",
-            suggests
-        );
-
+        let init_str = format!("Category::Additional {{ suggests: &{:?} }}", suggests);
         map.entry(name, &init_str);
     }
 
