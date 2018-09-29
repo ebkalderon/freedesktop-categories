@@ -6,7 +6,7 @@ description = "Static hash map of all Freedesktop.org categories"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/ebkalderon/freedesktop-categories"
 repository = "https://github.com/ebkalderon/freedesktop-categories"
-documentation = "https://docs.rs/freedesktop-categories/"
+documentation = "https://docs.rs/freedesktop-categories"
 readme = "README.md"
 keywords = ["freedesktop", "menu", "categories"]
 
