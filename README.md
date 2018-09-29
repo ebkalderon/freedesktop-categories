@@ -1,5 +1,14 @@
 # freedesktop-categories
 
+[![Build Status][s1]][cc] [![Crates.io][s2]][ci] [![Documentation][s3]][docs]
+
+[s1]: https://circleci.com/gh/ebkalderon/freedesktop-categories.svg?style=shield
+[cc]: https://circleci.com/gh/ebkalderon/freedesktop-categories
+[s2]: https://img.shields.io/crates/v/freedesktop-categories.svg
+[ci]: https://crates.io/crates/freedesktop-categories
+[s3]: https://img.shields.io/badge/docs-master-blue.svg
+[docs]: https://img.shields.io/badge/docs-master-blue.svg
+
 Static hash map of all application categories as defined by the Freedesktop.org
 [Desktop Menu Specification][dm].
 
@@ -16,6 +25,8 @@ package metadata standards like [AppStream][as].
 This is a community project that welcomes contributions from anyone. If you're
 interested in helping out, please check the [issue tracker][it] to get started.
 Pull requests and issues are welcome!
+
+[it]: https://github.com/ebkalderon/freedesktop-categories/issues
 
 ## License
 
