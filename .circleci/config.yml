@@ -1,0 +1,41 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/rust:1.29.1
+
+    environment:
+      TZ: "/usr/share/zoneinfo/Asia/Singapore"
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: project-cache
+      - run:
+          name: Check formatting
+          command: |
+            rustup component add rustfmt-preview
+            cargo fmt -- --check
+      - run:
+          name: Nightly Build
+          command: |
+            rustup toolchain add nightly
+            rustup run nightly rustc --version --verbose
+            rustup run nightly cargo --version --verbose
+            rustup run nightly cargo build
+      - run:
+          name: Stable Build
+          command: |
+            rustc --version --verbose
+            cargo --version --verbose
+            cargo build
+      - run:
+          name: Test
+          command: cargo test --no-run
+      - save_cache:
+          key: project-cache
+          paths:
+            - "~/.cargo"
+            - "./target"
+
