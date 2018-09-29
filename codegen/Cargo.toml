@@ -2,7 +2,17 @@
 name = "freedesktop-categories-codegen"
 version = "0.1.0"
 authors = ["Eyal Kalderon <ebkalderon@gmail.com>"]
-publish = false
+description = "Parser and code generator for freedesktop-categories"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/ebkalderon/renderdoc-rs"
+repository = "https://github.com/ebkalderon/freedesktop-categories-codegen"
+documentation = "https://docs.rs/freedesktop-categories-codegen/"
+categories = ["parser-implementations", "development-tools::build-utils"]
+keywords = ["freedesktop", "menu", "categories", "codegen"]
+
+[badges]
+circle-ci = { repository = "ebkalderon/freedesktop-categories" }
+maintenance = { status = "passively-maintained" }
 
 [dependencies]
 amxml = "0.5.2"
