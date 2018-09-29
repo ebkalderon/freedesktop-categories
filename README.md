@@ -7,7 +7,7 @@
 [s2]: https://img.shields.io/crates/v/freedesktop-categories.svg
 [ci]: https://crates.io/crates/freedesktop-categories
 [s3]: https://img.shields.io/badge/docs-master-blue.svg
-[docs]: https://img.shields.io/badge/docs-master-blue.svg
+[docs]: https://docs.rs/freedesktop-categories
 
 Static hash map of all application categories as defined by the Freedesktop.org
 [Desktop Menu Specification][dm].
