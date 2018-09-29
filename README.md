@@ -30,7 +30,7 @@ Pull requests and issues are welcome!
 
 ## License
 
-freedesktop-categories is free and open source software distributed under the
+`freedesktop-categories` is free and open source software distributed under the
 terms of both the [MIT License][lm] and the [Apache License 2.0][la].
 
 [lm]: ./LICENSE-MIT
