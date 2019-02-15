@@ -15,7 +15,7 @@ circle-ci = { repository = "ebkalderon/freedesktop-categories" }
 maintenance = { status = "passively-maintained" }
 
 [dependencies]
-amxml = "0.5.2"
+amxml = "0.5.3"
 chrono = "0.4.6"
-curl = "0.4.12"
-phf_codegen = "0.7.22"
+curl = "0.4.19"
+phf_codegen = "0.7.24"
