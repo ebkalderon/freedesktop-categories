@@ -1,6 +1,6 @@
 [package]
 name = "freedesktop-categories"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Eyal Kalderon <ebkalderon@gmail.com>"]
 description = "Static hash map of all Freedesktop.org categories"
 license = "MIT OR Apache-2.0"
@@ -19,9 +19,9 @@ default = []
 generate-map = ["freedesktop-categories-codegen"]
 
 [dependencies]
-phf = "0.7.22"
+phf = "0.7.24"
 
 [build-dependencies.freedesktop-categories-codegen]
-version = "0.1.0"
+version = "0.2.0"
 path = "./codegen"
 optional = true
